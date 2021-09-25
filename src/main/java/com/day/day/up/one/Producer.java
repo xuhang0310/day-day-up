@@ -6,21 +6,24 @@ import java.util.Queue;
 
 public class Producer implements Runnable{
 
+    private LockLocal laowang;
+
     private Queue<Product> queue;
 
-    private int index=0;
+    private int tag=0;
 
-    public Producer(Queue queue){
+    public Producer(Queue queue,LockLocal manager){
         this.queue=queue;
+        this.laowang = manager;
     }
 
 
-    private void produce(){
+    private void produce() throws InterruptedException {
         if(queue.size()<SuperMarket.max){
-
-            index++;
-            Product product=new Product("fish"+index);
-            System.out.println("--生产数据--"+product.getName());
+            tag++;
+            Thread.sleep(500000);
+            Product product=new Product("fish"+tag);
+            System.out.println("加紧生产鱼肉中："+product.getName());
             queue.add(product);
         }
 
@@ -29,9 +32,18 @@ public class Producer implements Runnable{
     @SneakyThrows
     @Override
     public void run() {
-        while (SuperMarket.isEmpty){
+        while (true){
             produce();
-            Thread.sleep(100);
+            if(queue.size()>=10){
+
+                synchronized (laowang){
+                    System.out.println("库存已经满了，我要休息了,当前库存："+queue.size());
+                    laowang.notifyAll();
+                    laowang.wait();
+                }
+
+            }
+
         }
 
     }
