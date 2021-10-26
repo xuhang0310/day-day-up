@@ -1,7 +1,5 @@
 package com.day.day.up.one;
 
-import org.openjdk.jol.info.ClassLayout;
-import org.openjdk.jol.vm.VM;
 
 public class LockLocal {
 
@@ -21,16 +19,16 @@ public class LockLocal {
 
         lockLocal.abc=44;
 
-        lockLocal.hashCode();
-
-        System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
-        synchronized (lockLocal){
-            System.out.println("---locking--");
-            System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
-        }
-
-        System.out.println("---after--");
-        System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
+//        lockLocal.hashCode();
+//
+//      //  System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
+//       、 synchronized (lockLocal){
+//            System.out.println("---locking--");
+//          ///  System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
+//        }
+//
+//        System.out.println("---after--");
+       // System.out.println( ClassLayout.parseInstance(lockLocal).toPrintable());
 
     }
 

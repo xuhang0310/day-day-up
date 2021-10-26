@@ -6,6 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>day-day-up</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -19,6 +20,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>webview-test</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -31,6 +35,15 @@
             <artifactId>jol-core</artifactId>
             <version>0.10</version>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-core -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
     </dependencies>
 
 
