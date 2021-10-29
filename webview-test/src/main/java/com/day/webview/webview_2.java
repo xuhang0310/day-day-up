@@ -15,7 +15,7 @@ public class webview_2 extends Application {
         try {
 
             // set title for the stage
-            stage.setTitle("creating Webview");
+            stage.setTitle("im chat");
 
             // create a webview object
             WebView w = new WebView();
@@ -24,12 +24,7 @@ public class webview_2 extends Application {
             WebEngine e = w.getEngine();
 
             // load a website
-            e.load("https://www.baidu.com");
-
-
-
-            // set zoom
-            w.setZoom(0.8);
+            e.load("http://192.168.10.119/dist/");
 
             // create a scene
             Scene scene = new Scene(w, w.getPrefWidth(),

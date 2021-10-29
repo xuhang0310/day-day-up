@@ -18,10 +18,10 @@ public class Producer implements Runnable{
     }
 
 
-    private void produce() throws InterruptedException {
+    private void produce()  {
         if(queue.size()<SuperMarket.max){
             tag++;
-            Thread.sleep(500000);
+
             Product product=new Product("fish"+tag);
             System.out.println("加紧生产鱼肉中："+product.getName());
             queue.add(product);
@@ -29,7 +29,7 @@ public class Producer implements Runnable{
 
     }
 
-    @SneakyThrows
+
     @Override
     public void run() {
         while (true){
@@ -39,7 +39,7 @@ public class Producer implements Runnable{
                 synchronized (laowang){
                     System.out.println("库存已经满了，我要休息了,当前库存："+queue.size());
                     laowang.notifyAll();
-                    laowang.wait();
+                    //laowang.wait();
                 }
 
             }

@@ -33,15 +33,15 @@ public class Customer implements Runnable{
        return null;
     }
 
-    @lombok.SneakyThrows
+
     @Override
-    public void run() {
+    public void run()  {
         int realNum=0;
         while (true){
             Product product=get();
             if(product!=null){
                 realNum++;
-                Thread.sleep(20);
+                //Thread.sleep(20);
                 buyNumber--;
             }else{
                 System.out.println(Thread.currentThread().getName()+":尝试获取锁");
@@ -58,10 +58,10 @@ public class Customer implements Runnable{
                    System.out.println("入锁后："+ClassLayout.parseInstance(laowang).toPrintable());
 
 
-                   Thread.sleep(100000);
+                 //  Thread.sleep(100000);
                     System.out.println(Thread.currentThread().getName()+":老王你这没货了，你倒是抓紧弄啊");
-                    laowang.notify();
-                    laowang.wait();
+//                    laowang.notify();
+//                    laowang.wait();
                 }
             }
             if(buyNumber==0){
