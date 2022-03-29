@@ -3,6 +3,7 @@ package com.day.day.up.three;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.SocketChannel;
 
 public class BioSocketServer {
 
@@ -19,8 +20,10 @@ public class BioSocketServer {
                 // 监听客户端
                 socket = serverSocket.accept();
 
-//                ServerThread thread = new ServerThread(socket);
-//                thread.start();
+                SocketChannel socketChannel= socket.getChannel();
+
+                System.out.println(socket);
+                
 
                 InetAddress address=socket.getInetAddress();
                 System.out.println("当前客户端的IP："+address.getHostAddress());

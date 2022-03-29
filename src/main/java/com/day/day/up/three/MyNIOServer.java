@@ -24,6 +24,9 @@ public class MyNIOServer {
         serverSocketChannel.configureBlocking(false);
         //把 serverSocketChannel注册到selector只关心OP_ACCEPT事件
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        serverSocketChannel.register(selector, SelectionKey.OP_READ);
+        serverSocketChannel.register(selector, SelectionKey.OP_CONNECT);
+        serverSocketChannel.register(selector, SelectionKey.OP_WRITE);
         while (true) {
             if(selector.select() == 0) {
                 System.out.println("无连接");

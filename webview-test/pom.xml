@@ -10,102 +10,48 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>webview-test</artifactId>
-
+    <properties>
+        <rocksdb.version>6.28.2</rocksdb.version>
+        <protostuff.version>1.7.4</protostuff.version>
+        <swagger.version>2.9.2</swagger.version>
+        <flink.version>1.13.6</flink.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <project.lombok.version>1.18.8</project.lombok.version>
+        <project.okhttp3.version>4.9.3</project.okhttp3.version>
+    </properties>
 
     <dependencies>
-        <!--controls依赖-->
+
+
+
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>17</version>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${project.okhttp3.version}</version>
         </dependency>
 
-        <!--graphics依赖-->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-graphics</artifactId>
-            <version>17</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
         </dependency>
 
-        <!--base依赖-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>17</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.79</version>
         </dependency>
 
-        <!--jfxweb依赖-->
+
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
-            <version>17</version>
-        </dependency>
+                 <groupId>com.sun.mail</groupId>
+                 <artifactId>javax.mail</artifactId>
+                 <version>1.5.6</version>
+            </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
 
-            <!--javafx application package-->
-            <plugin>
-                <groupId>com.zenjava</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>8.8.3</version>
-                <configuration>
-                    <!--启动类-->
-                    <mainClass>com.day.webview.webview_2</mainClass>
-                    <!--启动引导-->
-                    <!--<preLoader>com.maxbill.core.desktop.AppGuide</preLoader>-->
-                    <!--运行文件名-->
-                    <appName>Chat</appName>
-                    <!--启用自定义打包配置-->
-                    <verbose>true</verbose>
-                    <!--菜单图标-->
-                    <needMenu>true</needMenu>
-                    <!--桌面图标-->
-                    <needShortcut>true</needShortcut>
-                    <!--JVM参数-->
-                    <jvmArgs>
-                        <jvmArg>-Xms100m</jvmArg>
-                        <jvmArg>-Xmx200m</jvmArg>
-                        <jvmArg>-Dfile.encoding=UTF-8</jvmArg>
-                        <jvmArg>-XX:-UseGCOverheadLimit</jvmArg>
-                        <jvmArg>-Dsun.jnu.encoding=UTF-8</jvmArg>
-                        <jvmArg>-Dvisualvm.display.name=Chat</jvmArg>
-                        <argument>-Dapple.laf.useScreenMenuBar=true</argument>
-                    </jvmArgs>
-                    <!--JVM启动参数-->
-                    <launcherArguments>
-                        <launcherArgument>-Xms100m</launcherArgument>
-                        <launcherArgument>-Xmx200m</launcherArgument>
-                        <launcherArgument>-Dfile.encoding=UTF-8</launcherArgument>
-                        <launcherArgument>-XX:-UseGCOverheadLimit</launcherArgument>
-                        <launcherArgument>-Dsun.jnu.encoding=UTF-8</launcherArgument>
-                        <launcherArgument>-Dvisualvm.display.name=Chat</launcherArgument>
-                    </launcherArguments>
-                    <!--JAVA启动参数-->
-                    <runJavaParameter>
-                        -Xms100m
-                        <!-- -Xms50m -Xmn1g -Xss228k -XX:+UseParallelGC -XX:ParallelGCThreads=20-->
-                    </runJavaParameter>
-                    <!--APP启动参数-->
-                    <runAppParameter>
-                        --spring.profiles.active=pro
-                    </runAppParameter>
-                    <!--安装配置项-->
-                    <bundleArguments>
-                        <installdirChooser>true</installdirChooser>
-                    </bundleArguments>
-                    <!--供应商-->
-                    <vendor>MaxBill</vendor>
-                    <!--允许所有权限-->
-                    <allPermissions>true</allPermissions>
-                    <!--版本信息-->
-                    <nativeReleaseVersion>v3.2.0</nativeReleaseVersion>
-                    <!--说明信息-->
 
-                </configuration>
-            </plugin>
 
-        </plugins>
-    </build>
 </project>
